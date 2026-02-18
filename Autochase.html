@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoCase - Car Spotting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .upload-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .upload-section input {
+            margin-top: 10px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .leaderboard {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #ff3c00;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #cc3000;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚗 AutoCase</h1>
+    <p>Spot. Chase . Share.</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Spot Car</a>
+    <a href="#">Community</a>
+    <a href="#">Leaderboard</a>
+    <a href="#">Profile</a>
+</nav>
+
+<div class="container">
+
+    <div class="upload-section">
+        <h2>Upload a Car Photo</h2>
+        <input type="file" id="carUpload">
+        <br><br>
+        <button onclick="identifyCar()">Identify Car</button>
+        <p><i>*Prototype AI Simulation*</i></p>
+    </div>
+
+    <!-- AI Result Card -->
+    <div class="card" id="carResult">
+        <h2>Detected Car</h2>
+        <img src="https://via.placeholder.com/600x300" alt="Car Image">
+        <h3>BMW M4 Competition 2023</h3>
+        <p><b>Engine:</b> 3.0L Twin Turbo Inline-6</p>
+        <p><b>Horsepower:</b> 503 HP</p>
+        <p><b>Top Speed:</b> 290 km/h</p>
+        <p><b>Rarity:</b> Rare ⭐⭐⭐⭐</p>
+    </div>
+
+    <div class="card">
+        <h2>Community Feed</h2>
+        <p><b>@CarHunter21</b> spotted a Lamborghini Huracán 🔥</p>
+        <p><b>@SpeedKing</b> spotted a Toyota Supra MK5</p>
+        <p><b>@AutoFan</b> spotted a Porsche 911 Turbo</p>
+    </div>
+
+    <div class="leaderboard">
+        <h2>Top Spotters</h2>
+        <ol>
+            <li>CarHunter21 - 1200 pts</li>
+            <li>SpeedKing - 980 pts</li>
+            <li>AutoFan - 850 pts</li>
+        </ol>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 AutoCase | School Project Prototype
+</footer>
+
+<script>
+function identifyCar() {
+    const cars = [
+        {
+            name: "BMW M4 Competition 2023",
+            engine: "3.0L Twin Turbo Inline-6",
+            hp: "503 HP",
+            speed: "290 km/h",
+            rarity: "Rare ⭐⭐⭐⭐",
+            image: "https://via.placeholder.com/600x300?text=BMW+M4"
+        },
+        {
+            name: "Lamborghini Huracán 2022",
+            engine: "5.2L V10",
+            hp: "630 HP",
+            speed: "325 km/h",
+            rarity: "Legendary ⭐⭐⭐⭐⭐",
+            image: "https://via.placeholder.com/600x300?text=Lamborghini+Huracan"
+        },
+        {
+            name: "Toyota Supra MK5 2023",
+            engine: "3.0L Turbo Inline-6",
+            hp: "382 HP",
+            speed: "250 km/h",
+            rarity: "Uncommon ⭐⭐⭐",
+            image: "https://via.placeholder.com/600x300?text=Toyota+Supra"
+        },
+        {
+            name: "Porsche 911 Turbo S 2023",
+            engine: "3.8L Twin Turbo Flat-6",
+            hp: "640 HP",
+            speed: "330 km/h",
+            rarity: "Legendary ⭐⭐⭐⭐⭐",
+            image: "https://via.placeholder.com/600x300?text=Porsche+911"
+        }
+    ];
+
+    const randomCar = cars[Math.floor(Math.random() * cars.length)];
+
+    document.getElementById("carResult").innerHTML = `
+        <h2>Detected Car</h2>
+        <img src="${randomCar.image}" alt="Car Image">
+        <h3>${randomCar.name}</h3>
+        <p><b>Engine:</b> ${randomCar.engine}</p>
+        <p><b>Horsepower:</b> ${randomCar.hp}</p>
+        <p><b>Top Speed:</b> ${randomCar.speed}</p>
+        <p><b>Rarity:</b> ${randomCar.rarity}</p>
+    `;
+}
+</script>
+
+</body>
+</html>
